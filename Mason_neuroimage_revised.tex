@@ -1,0 +1,354 @@
+\documentclass[12pt]{spieman}  % 12pt font required by SPIE;
+%\documentclass[a4paper,12pt]{spieman}  % use this instead for A4 paper
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{lineno}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+
+\title{Association between carotid atherosclerosis and brain activation patterns during the Stroop task in older adults: an fNIRS investigation}
+
+\author[a,*]{Sarah A Mason}
+\author[b]{Lamia Al Saikhan}
+\author[a]{Siana Jones}
+\author[a, c]{Sarah-Naomi James}
+\author[d] {Heidi Murray-Smith}
+\author[a]{Alicja Rapala}
+\author[a]{Suzanne Williams}
+\author[a, d, e]{Carole Sudre}
+\author[a]{Brian Wong}
+\author[a]{Marcus Richards}
+\author[c]{Nick C. Fox}
+\author[a]{Rebecca Hardy}
+\author[a, d]{Jonathan M. Schott}
+\author[a]{Nish Chaturvedi}
+\author[a, *]{Alun D Hughes}
+\affil[a]{ MRC Unit for Lifelong Health and Ageing at University College London, Department of Population Science and Experimental Medicine, Institute of Cardiovascular Science, 1-19 Torrington Place, London, United Kingdom, WC1E 7HB}
+\affil[b]{Department of Cardiac Technology, College of Applied Medical Sciences, Imam Abdulrahman Bin Faisal University, 2835 King Faisal Street, Damman, Kingdom of Saudi Arabia}
+\affil[c]{Dementia Research Centre, Institute of Neurology, University College London, London, UK}
+\affil[d]{Centre for Medical Image Computing, Department of Computer Science, University College London, London UK}
+\affil[e]{School of Biomedical Engineering, King's College, London}
+
+
+
+\renewcommand{\cftdotsep}{\cftnodots}
+\cftpagenumbersoff{figure}
+\cftpagenumbersoff{table} 
+\begin{document} 
+\renewcommand{\arraystretch}{1.5}
+\maketitle
+
+\begin{abstract}
+There is an increasing body of evidence suggesting that vascular disease could contribute to cognitive decline and overt dementia. Of particular interest is atherosclerosis, as it is not only associated with dementia, but could be a potential mechanism through which cardiovascular disease directly impacts brain health. In this work, we evaluated the differences in functional near infrared spectroscopy (fNIRS)-based measures of brain activation, task performance, and the change in central hemodynamics (mean arterial pressure (MAP) and heart rate (HR)) during a Stroop color-word task in individuals with atherosclerosis, defined as bilateral carotid plaques (n = 33) and healthy age-matched controls (n = 33).  In the healthy control group, the left prefrontal cortex (LPFC) was the only region showing evidence of activation when comparing the incongruous with the nominal Stroop test. A smaller extent of brain activation was observed in the Plaque group compared with the healthy controls (1) globally, as measured by oxygenated hemoglobin (p = 0.036) and (2) in the LPFC (p = 0.02) and left sensorimotor cortices (LMC)(p = 0.008) as measured by deoxygenated hemoglobin. There were no significant differences in HR, MAP, or task performance (both in terms of the time required to complete the task and number of errors made) between Plaque and control groups. These results suggest that carotid atherosclerosis is associated with altered functional brain activation patterns despite no evidence of impaired performance of the Stroop task or central hemodynamic changes.
+\end{abstract}
+
+% Include a list of up to six keywords after the abstract
+\keywords{functional near infrared spectroscopy (fNIRS), neurovascular coupling, Stroop task, cognitive function}
+
+% Include email contact information for corresponding author
+{\noindent \footnotesize\textbf{*}Sarah A. Mason,  \linkable{s.mason@ucl.ac.uk} }
+{\noindent \footnotesize\textbf{*}Alun D. Hughes,  \linkable{alun.hughes@ucl.ac.uk} }
+
+\begin{spacing}{2}   % use double spacing for rest of manuscript
+
+\section{Introduction}
+\label{sect:intro}  % \label{} allows reference to this section
+\linenumbers
+%It is well established that dementia and cerebrovascular disease share many of the same cardiovascular risk factors \cite{Honjo2012, DeLaTorre2012, Breteler2000, Kovacic2012}. In fact, a variety of cardiovascular risk factors have been directly implicated in impaired cognitive function: carotid stenosis \cite{Mathiesen2003}, arterial stiffness \cite{Kearney-Schwartz2009}, cardiac function \cite{Sabayan2015}, and atherosclerosis\cite{Romero2009} have been independently associated with poor performance in tests of attention, memory, processing speed, and executive function. Although there is a link between cardiovascular health and cognition, the exact mechanisms underpinning this relationship have yet to be elucidated.
+
+A variety of cardiovascular risk factors or cardiovascular disease biomarkers are associated with impaired cognitive function. For example, carotid stenosis \cite{Mathiesen2003}, increased arterial stiffness \cite{Kearney-Schwartz2009}, poorer cardiac function \cite{Sabayan2015}, and carotid atherosclerosis (defined as a thickening and hardening of arteries due to a buildup of plaque in the lumen) \cite{Romero2009} have been associated with poor performance in tests of attention, memory, processing speed, and executive function. Furthermore, there is evidence suggesting that cardiovascular risk factors are not only associated with cognitive impairment and Alzheimer's disease (AD), but may in fact precede and/or accelerate the onset of neurodegeneration \cite{Bell2009, Breteler2000, DeLaTorre2012, Honjo2012, Kovacic2012}. It has been posited that vascular dysfunction or damage arising from cardiovascular risk factors can lead to chronic hypoperfusion and ischemia, impaired cerebral blood flow regulation, and disruption to the blood-brain barrier \cite{Bell2009}.  According to the Vascular Hypothesis \cite{DeLaTorre1993, DelaTorre2018}, these hemodynamic disturbances not only cause direct brain injury, but can initiate cerebral angiopathy by triggering over-production and reduced clearance of amyloid $\beta$-protein, thereby leading to deficits in cognitive domains such as executive function and memory, and potentially resulting in overt dementia \cite{Rensink2003, Honjo2012, Bell2009, DeLaTorre2012}. 
+
+Atherosclerosis underlies the majority of cardiovascular diseases and is relevant to cognition given that it is not only associated with dementia \cite{Hofman1997} and an increase in cerebral amyloid deposits \cite{Honig2005, Li2003}, but could be a potential mechanism through which cardiovascular disease directly impacts brain health\cite{Honjo2012}. To better understand the potential  role of atherosclerosis in cognitive impairment, we sought to compare (1) cognitive performance, (2) central hemodynamic changes, and (3) patterns of functional brain activity using functional near infrared spectroscopy (fNIRS) in older adults with and without carotid atherosclerosis during an incongruous Stroop color-word task. 
+
+The participants in this work were part of the Insight 46 neuroscience sub-study of the National Survey of Health and Development (NSHD). NSHD is an ongoing British birth cohort study where social, lifestyle, cognitive and physical data from over 5000 individuals born within the same week in 1946 has been assessed over the course of the participants' lives \cite{Kuh2011, James2018, Kuh2016}. A sub-sample of 502 NSHD participants volunteered for the Insight 46 study, which is designed to explore preclinical dementia and the causes/consequences of cerebrovascular amyloid pathology on brain health through a battery of clinical, neurosychological, imaging, biomarker, genetic, and vascular assessments \cite{Lane2017, Mason2020b}. Insight 46 provides a powerful opportunity to investigate the mechanisms of early cognitive decline as many participants in this study (aged 72 - 73) likely exhibit subclinical pathophysiological changes such as amyloid pathology and atherosclerosis yet have a low risk of overt dementia \cite{Ferri2014}. 
+
+The extensive phenotyping protocol performed as part of the Insight 46 study involves psychometric testing using fNIRS \cite{Mason2020b}. fNIRS is an optical technique whereby changes in concentration of oxygenated hemoglobin (O2Hb) and deoxygenated hemoglobin (HHB) in the cerebral microvasculature of the cortical surface can be detected \cite{Scholkmann2014, Bunce2006}. As fNIRS is non-invasive and relatively insensitive to motion, it can be used to evaluate hemodynamic changes arising from neurovascular coupling (NVC) during a variety of cognitive tasks in a naturalistic environment\cite{Pinti2017, Udina2020}. NVC refers to the localised increase in blood flow that occurs in response to a cognitive stimulus, and is commonly used as a surrogate for neuronal activity. 
+
+In this work, we assessed fNIRS-based measures of brain activity in older adults during the Stroop color-word task, which is a well-established method for evaluating executive function, specifically in the ability to inhibit automatic responses \cite{Stroop1935, Scarpina2017, Vendrell1995}. The degree of Stroop interference (both in terms of response time and the number of errors made) not only increases as a function of normal ageing\cite{Davidson2003}, but is exacerbated by conditions such as cognitive impairment and dementia \cite{Amieva2004, Lague-Beauvais2013a, Spieler1996}.
+
+Here, we use the presence of ultrasound-diagnosed bilateral carotid plaques as an indicator of moderately severe atherosclerotic burden, and assess whether there are any differences in performance, hemodynamics, and/or brain activation patterns in atherosclerotic individuals compared with age-matched controls. We hypothesize that atherosclerotic individuals will perform significantly worse than the healthy controls on the Stroop task in terms of both time to complete the task and the number of errors made. NVC is identified in regions where there is a concurrent increase in O2Hb concentration and decrease in HHB concentration. We aim to compare fNIRS-measures of changes in O2Hb and HHB between groups between corresponding anatomical brain regions to determine the strength and location of NVC. We hypothesize that the presence of bilateral carotid plaques will be associated with a significant reduction in NVC primarily in the prefrontal cortices when comparing the incongruous with the nominal Stroop test.
+.
+
+\section{Methods}
+\label{sect:methods}
+\subsection{Participant recruitment}
+ Participants were selected from 184 participants (aged 72 - 73) who attended an Insight 46 clinic between October 2018 - March 2020.  Research Ethics Committees in England and Scotland provided approval for NSHD \cite{Kuh2011, Kuh2016, Lane2017, Hardy2016}. The National Research Ethics Service Committee London (REC reference 14/LO/1173) approved the Insight 46 sub-study. All participants provided written informed consent to participate and for their data to be stored. Exclusion criteria for the study included: a Mini-Mental State Exam (MMSE) below 24, established cardiovascular disease at age 53, heart attack by the age of 69.  
+
+
+\subsection{Investigations}
+The Insight 46 protocols have  been previously described \cite{Mason2020b}. All participants completed a health and lifestyle questionnaire and underwent measurements of height and weight, blood pressure, and blood tests. Cholesterol/high density lipoprotein (HDL) ratio was calculated for each participant from the most recently available data from the NSHD database. The MMSE score from each participant was also obtained from the most recently available data from the NHSD database to confirm that participants had normal cognitive function. An EPIQ 7G ultrasound scanner (Philips Healthcare, Andover MA, USA) with a linear array transducer (L12-3) was used to check for the presence of plaques in the left and right carotid arteries. A plaque was defined as a focal structure that encroaches into the arterial lumen by at least 0.5 mm or 50\% of the surrounding intima-media thickness or a region of intima-media thickness $>$1.5 mm \cite{Touboul2012}. Echocardiography was performed using an EPIQ 7G ultrasound scanner with an X5-1 transducer. A 3-lead  electrocardiogram (ECG) was recorded concurrently with all ultrasound examinations. In addition, a standard 12-lead resting ECG was performed in the supine position. All abnormal findings (presence of carotid plaques, dilated atria, atrial fibrillation, left bundle branch block, aortic valve calcification, left ventricular hypertrophy, low voltage QRS  etc.) were recorded in the electronic case report form. 
+
+Findings on vascular ultrasound, echocardiography, and 12-lead electrocardiography (ECG) were used to categorize the study participants based on their cardiovascular health at the time of their second Insight 46 clinic visit. Participants were tagged with at least one label as shown in Table \ref{table:labels} depending on the number and type of incidental findings from the cardiovascular assessment. Participants with label 0 (no incidental findings) were classified as  `Healthy' and participants with label 3 (more severe atherosclerosis, with plaque detected on both the left and right carotid artery) were categorized into the `Plaque' group. Note that participants with unilateral plaques were excluded from further analysis. 
+
+
+% Differences between the Healthy and Plaque groups in each of these were assessed using a Fisher's Exact test (with the Freeman-Halton extension for smoking status) for categorical variables and a Student's T test for continuous variables.
+
+\begin{table}[]
+\caption{- Labels used for participant categorization based on incidental findings from the cardiovascular assessment}
+\begin{center}
+\begin{tabular}{|r|l|lll}
+\cline{1-2}
+\multicolumn{1}{|l|}{\textbf{Label}} & \textbf{Definition}              &  &  &  \\ \cline{1-2}
+0                                       & No incidental findings           &  &  &  \\ \cline{1-2}
+1                                       & Carotid plaque (left side only)  &  &  &  \\ \cline{1-2}
+2                                       & Carotid plaque (right side only) &  &  &  \\ \cline{1-2}
+3                                       & Carotid plaques (both sides)     &  &  &  \\ \cline{1-2}
+4                                       & Abnormal ECG                     &  &  &  \\ \cline{1-2}
+5                                       & Other                            &  &  &  \\ \cline{1-2}
+\end{tabular}
+\label{table:labels}
+\end{center}
+\end{table}
+
+
+
+\subsection{Stroop color-word testing protocol}
+\label{sect:stroop}
+A verbal Stroop color-word task was performed. Though there are different versions of the Stroop test, the basic concept is to measure the accuracy and speed with which one can identify the color of a word printed in ink mismatched to the meaning of the color (i.e. the word `blue' printed in green ink). As language is a powerful distractor, there is a natural delay in response time in this task compared with identifying the color of non-words (such as `XXXXX' printed in green ink, for example). Our implementation of the Stroop task consisted of three blocks, with each block preceded and followed by a 60-second baseline/recovery period where the participant stared straight ahead at a black poster. All blocks were presented on white A4 laminated sheets of paper held upright by a free-standing clipboard to avoid a downward head-tilt whilst reading. The description of each block of the Stroop task is described below:
+ 
+\begin{itemize}
+\item{Block 1 - \textbf{Nominal}: Participants read aloud 100 words (spelling either `blue', `red', or `green') printed in black ink in five evenly spaced columns on the page}
+\item{Block 2 - \textbf{Congruous}: Participants read aloud colors of 100 `XXXXX' (printed in either blue, red, or green ink) displayed in five evenly spaced columns on the page}
+\item{Block 3 - \textbf{Incongruous}: Participants read aloud the color (red, blue or green ink) of 100 words (spelling `red', `green', or `blue'), where the color of the word was mismatched to the meaning of the word itself. The words were displayed in five evenly spaced columns on the page}. 
+\end{itemize}
+
+The number of errors made and time required to complete each Stroop block were recorded to quantify task performance. 
+
+\subsection{Hemodynamic and fNIRS monitoring during the Stroop task}
+
+Throughout the duration of the Stroop task, cerebral hemodynamics were monitored with an 18-channel, dual-wavelength (760 and 850 nm) continuous wave Brite 24 fNIRS device (Artinis Medical Systems, BV, Zetten, The Netherlands). This device had 16 long separation channels (where the source and detector were separated by 3 cm) arranged in quadrants approximately over the left and right prefrontal cortex (LPFC/RPFC) and the left and right motor/somatosensory cortices (LMC/RMC). This device also had 2 short separation channels (where the source and detector were separated by 1 cm) placed on the left and right PFC. See Figure \ref{fig:channelPosition} for an illustration of channel positioning. The sampling frequency of this device was 10 Hz. The investigator positioned the cap symmetrically on the participant's head with the brim approximately 1 cm above the eyebrows, and secured the position of the cap using the chin strap. A Polhemus Patriot Device (Polhemus, Colchester, VT, USA) was used to determine the position of each source and detector with respect to anatomical landmarks of the head based on the international 10/20 system \cite{Jurcak2007}. The operator tagged the position of the nasion, inion, left preauricular point, right preauricular point, top of the head along the mid-sagittal plane (Cz), each source, and each detector using the electromagnetic Polhemus sensor. These positions were converted from real space to the Montreal Neurological Institute (MNI) stereotaxic coordinate system automatically in the software used to interface with the Brite 24 (Oxysoft, Artinis Medical Systems, BV, Zetten, the Netherlands). 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 75mm]{Fig7_channelPosition.jpg}
+\end{center}
+\caption 
+{\label{fig:channelPosition} An example of the channel position of the Brite 24 cap obtained with the Pohemus digitization. Sources are shown in orange (long separation channels) and red (short separation channels). Detectors are shown in blue. Note that the sources and detectors are arranged in quadrants over the left and right somatosensory cortices and prefrontal cortices.} 
+\end{figure} 
+
+Changes in beat-to-beat peripheral mean arterial pressure (MAP) and heart rate (HR) were also monitored during the Stroop task using a Finometer (Finapres Medical Systems BV, the Netherlands) placed on the finger cuff on either the index finger or middle finger of the non-dominant hand  according to the manufacturer's instructions. Finometer readings were synchronized with fNIRS readings using electronic markers to indicate the start and end of each Stroop and baseline/recovery block. 
+
+
+\subsection{fNIRS signal processing pipeline} \label{sec:preprocessing}
+All analyses were performed in Matlab\textsuperscript{\textregistered} (2021a) using the SPM-fNIRS toolbox developed by the NeuroImaging Tools \& Resources Collaboratory (NITRC) \cite{Tak2016}. This software enabled statistical parametric mapping of fNIRS data using SPM12 software.
+
+\subsubsection{Temporal preprocessing and channel rejection}\label{sec:pipeline}
+fNIRS Intensity data from each channel was converted into $\Delta$O2Hb and $\Delta$HHB using the Modified Beer Lambert Law and differential pathlength factors (DPF) of 7.4 and 6.4 for the 760 nm and 850 nm wavelengths respectively. These DPFs were calculated automatically in the SPM-fNIRS software using the age-dependent general equation for the DPF derived by Scholkmann and Wolf \cite{Scholkmann2013}. Motion artefacts were corrected using the Motion Artifact Reduction Algorithm (MARA) with the default values of 1, 3, and 5 accepted for the moving window length (L), threshold factor-motion detection (th) and smoothing factor motion artifact ($\alpha$) parameters respectively \cite{Scholkmann2010a}. A band-stop filter with cut-off frequencies of 0.1 and 2 Hz was applied to remove physiological noise. The data were then downsampled to 1 Hz and linear de-trended using a discrete cosine transform (DCT) with a cutoff of 160 seconds. An example channel from a study participant before and after temporal preprocessing is shown in Figure \ref{fig:temporalPreprocessing}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = \linewidth]{Fig1_temporalPreprocessing_example.jpg}
+\end{center}
+\caption 
+{\label{fig:temporalPreprocessing} An example of unprocessed (blue) and fully processed (red) fNIRS data obtained from a participant performing the verbal Stroop task. The trace shown is $\Delta$O2Hb in units of mol/L. The stimulus periods (Stroop blocks 1, 2, and 3) are indicated by the yellow rectangles superimposed over the fNIRS traces.} 
+\end{figure} 
+
+The frequency spectrum of the $\Delta$O2Hb for each channel (before filtering) was visually assessed in the SPM-fNIRS temporal preprocessing GUI to check for a peak at around 1 Hz corresponding to the cerebrovascular pulsatility arising from the heartbeat. This is a well-established indicator of fNIRS signal quality as it demonstrates good optical coupling has been achieved \cite{Yucel2021}. Any trace with a very small or non-existent peak was visually inspected further in the time domain to confirm poor data quality. Any trace with poor optical coupling (arising from either an over-saturation of ambient light or poor contact with the participant's scalp) or completely corrupted by motion artefacts was rejected and not analysed further. Each participant was given an overall fNIRS signal quality rating based on the following criteria:
+\begin{enumerate}   
+\item{\textbf{Unacceptable}: Over half of the channels were rejected, and/or 02Hb and HHB were suspiciously correlated due to motion artefacts not adequately corrected for by the MARA algorithm}
+\item{\textbf{Acceptable}: At least half of the channels retained, with zero to minor detectable artefacts}
+\end{enumerate}
+
+ Only participants with a rating of `Acceptable' were considered for further analysis.
+
+
+\subsubsection{Model Specification and Estimation}
+A general linear model (GLM) was used to analyse the temporally preprocessed O2Hb and HHB fNIRS signals. The GLM is shown in Equation \ref{eq1}\cite{Pinti2017, Scholkmann2014, Huppert2016a}, where $Y$ is the measured fNIRS signal after processing, $X$ is the design matrix, $\beta$ is the vector of weights of each regressor in the design matrix, and $\epsilon$ is the error. The Model Specification routine in SPM-fNIRS was used to (1) correct for serial autocorrelations in the fNIRS data using a first order autoregressive (AR(1)) plus white noise model \cite{Friston2002, Purdon1998} and (2) construct the design matrix, which consisted of:
+
+\begin{enumerate}
+\item{A task regressor for each of the three Stroop blocks modelled using the canonical hemodynamic response function (HRF) convolved with the box car function corresponding to individual task duration with time and dispersion derivatives to allow for the peak and width of the response to vary by plus or minus a second, respectively \cite{ MartinA.Lindquist2009}.}
+\item{The left and right short separation channels (after preprocessing as described in Section \ref{sec:preprocessing}) to remove extracerebral contamination\cite{Yucel2015, Scholkmann2014}.}
+\item{A constant to model the signal mean.}
+\end{enumerate}
+
+\begin{equation} \label{eq1}
+Y = X \cdot \beta + \epsilon 
+\end{equation}
+
+The  $\beta$ coefficients were solved for on a channel by channel basis using the Model Estimation routine in SPM-fNIRS.
+
+\subsection{Evaulation of hemodynamic effects} \label{sec:Tmaps}
+
+
+Equation \ref{eq3} indicates how channel-wise T statistics were calculated given a contrast vector $c$ and the covariance of the $\beta$ coefficients (see equation \ref{eq4}) calculated using the GLM\cite{Huppert2016a}. The nominal Stroop task was chosen as our control as the experimental conditions were identical to the incongruous Stroop task (i.e. reading and speaking aloud), but the PFC was not activated as this task is considered an `automatic' process. We therefore assessed whether there was significantly greater evidence of NVC in the incongrous Stroop task (Block 3) compared to the nominal Stroop task (Block 1) by setting the contrast vector values to 1 and -1 for the Block 3 task regressor and Block 1 task regressor, respectively.
+\begin{equation}\label{eq3}
+T = c \cdot \beta/\sqrt{c \cdot Cov_{b} \cdot c^{T}}
+\end{equation}
+
+\begin{equation}\label{eq4}
+Cov_{\beta} = (X^{T} \cdot X)^{-1} \cdot \sigma^{2}
+\end{equation} 
+
+
+\subsection{Statistical Analyses}
+%All data were examined for normality. Data distributed normally were described and analyzed with parametric statistics (mean, standard deviation (SD), 95\% confidence interval (95\% CI), two-sample t-tests, and linear mixed effect modeling). Data with non-normal distributions were described and analyzed with non-parametric statistics (median, 95\% CI calculated using a bias-corrected bootstrap method with 2000 samples, and Mann-Whitney U tests).
+
+\subsubsection{Stroop performance}
+The two performance metrics considered were: (1) time required to complete the incongruous Stroop task and (2) the number of errors made. Data were reported as medians and nonparametric 95\% CIs. Differences in both of these performance metrics between the Healthy and Plaque group were determined using a Mann-Whitney U test.
+
+\subsubsection{Central hemodynamics during Stroop task}
+Data were reported as means $\pm$ SD. Student's t-tests were used to test for differences between the Healthy and Plaque groups in the change in MAP and HR during the incongruous Stroop task relative to the preceding baseline period. 
+
+\subsubsection{Cerebral fNIRS during Stroop task}
+The t statistic maps generated for each participant for O2Hb and HHB were subdivided into four anatomical regions as shown in Figure \ref{fig:TmapRegions}: (1) the left prefrontal cortex (LPFC), (2) the right prefrontal cortex (RPFC), (3) the left sensorimotor cortices (LMC), and (4) the right sensorimotor cortices (RMC). In addition to comparing the overall activation between the Healthy and Plaque groups in the incongruous relative to the nominal condition, we postulated a priori that there would be effect modification by anatomical region as we expect minimal activation in the sensorimotor regions, high activation in the prefrontal regions, and a potential hemispheric effect depending on the dominant hand of the participant.  Therefore, the mean T statistic for each region in the incongruous relative to the nominal condition was computed for each participant and was used as the outcome variable in a robust linear mixed effects (LME) model with anatomical region and group (Healthy vs. Plaque) as fixed effects and participant ID as a random effect for O2Hb and HHB separately. The LME analysis was performed using Stata 17 (StataCorp. 2021. Stata Statistical Software: Release 17. College Station, TX: StataCorp LLC.), other statistical analyses were performed using Matlab 2021a. The RMC was used as the contrast region in the LME model, as we expect this region to have the lowest level of NVC during the Stroop task because (a) the Stroop task is not designed to activate motor functions and (b) the right hemisphere may be less dominant given the handedness of the majority of the participants. The Huber White Sandwich estimator was used to improve estimates of standard error given the heteroskedasticity of the data. Statistical significance was assigned using the conventional threshold of p $<$ 0.05. 
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = \linewidth]{Fig2_TmapRegions.jpg}
+\end{center}
+\caption 
+{\label{fig:TmapRegions} An example of how the t statistic map superimposed over a rendered brain was subdivided into the four anatomical regions used in the statistical analysis. Region 1 = left prefontal cortex (LPFC), Region 2 = right prefrontal cortex (RPFC), Region 3 = left sensorimotor cortices (LMC), and Region 4 = right sensorimotor cortices(RMC).} 
+\end{figure} 
+
+
+\section{Results}
+\subsection{Participant characteristics}
+102 out of 184 fNIRS datasets received a rating of 2 (acceptable quality), and were therefore considered for further analysis. Of these 102 participants, 33 participants had no incidental findings and were included in the Healthy group and 33 participants had plaque on both the left and right carotid arteries and were included in the Plaque group. Note, the groups were not planned to be matched 1:1, and it is coincidental that there were 33 participants exactly in each group. Table \ref{table:participantCharacteristics} summarizes the sex, handedness, and other cardiovascular health phenotypes assessed for the participants within each group. There were significantly more men in the Plaque group ($p = 0.007$), but otherwise the two groups were similar. 
+
+%The distribution of incidental findings by category and by number is shown in Figures \ref{fig:popCharacteristics}a and \ref{fig:popCharacteristics}b respectively.\textit{ [not sure this is worth including. What is worth including is a comparison of the demographics by those who were rejected v those who were excellent - potentially a source of bias, perhaps not so much in this study where participants are quite heavily selected but useful for future work ] }
+
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width = \linewidth]{populationCharacteristics.jpg}
+%\end{center}
+%\caption 
+%{\label{fig:popCharacteristics}(a) Pie chart demonstrating the incidental findings detected within the population (n = 102) by type. (b) Histogram of the number of incidental findings across the population} 
+%\end{figure} 
+
+
+\begin{table}[]
+\caption{Participant characteristics for each group.}
+\begin{center}
+\begin{tabular}{r|l|l|}
+\cline{2-3}
+\multicolumn{1}{l|}{}                                                             & \multicolumn{1}{c|}{\textbf{Healthy (n = 33)}} & \multicolumn{1}{c|}{\textbf{Plaque (n = 33)}} \\ \hline
+\multicolumn{1}{|r|}{\textbf{Age (mean $\pm$ SD) }}                                              & 73.7  $\pm$ 0.7                                       & 73.6 $\pm 0.5$                                     \\ \hline
+\multicolumn{1}{|r|}{\textbf{Men }}                                              & 12 (36\%)                                      & 23 (70\%)                                     \\ \hline
+\multicolumn{1}{|r|}{\textbf{Right-handed}}                                       & 31 (94\%)                                      & 30 (91\%)                                     \\ \hline
+\multicolumn{1}{|r|}{\textbf{Cardiovascular disease at age 53}}                   & 0 (0\%)                                        & 0 (0\%)                                       \\ \hline
+\multicolumn{1}{|r|}{\textbf{Type 2 diabetes at age 63}}                          & 2 (6\%)                                        & 3 (9\%)                                       \\ \hline
+\multicolumn{1}{|r|}{\textbf{Smoking status }: Current smokers}                           & 0 (0\%)                                        & 2 (6\%)                                       \\ \hline
+\multicolumn{1}{|r|}{Ex-smokers}                                                  & 15 (45\%)                                      & 21 (64\%)                                     \\ \hline
+\multicolumn{1}{|r|}{Non-smokers}                                                 & 18 (55\%)                                      & 9 (27\%)                                      \\ \hline
+\multicolumn{1}{|r|}{Question not answered}                                                     & 0 (0\%)                                        & 1 (3\%)                                       \\ \hline
+\multicolumn{1}{|r|}{\textbf{BMI (age 69 - 71, mean $\pm$ SD)}}                     & 27.8 $\pm$ 3.5                                   & 27.9 $\pm$ 4.2                                  \\ \hline
+\multicolumn{1}{|r|}{\textbf{Systolic blood pressure (age 69 - 71, mean $\pm$ SD)}} & 133.4 $\pm$ 15.2                                 & 137.1 $\pm$ 14.6                                \\ \hline
+\multicolumn{1}{|r|}{\textbf{Diastolic blood pressure (age 69 - 71, mean $\pm$ SD)}} & 74.0 $\pm$ 8.1                                 & 75.0 $\pm$ 8.9                                \\ \hline
+\multicolumn{1}{|r|}{\textbf{Cholesterol/HDL ratio (age 69 - 71, mean$\pm$ SD)}}   & 3.4 $\pm$- 1.1                                    & 3.3 $\pm$ 1.2                                   \\ \hline
+\multicolumn{1}{|r|}{\textbf{MMSE score (age 69 - 71, mean$\pm$ SD)}}   & 29.4 $\pm$ 1.0                                    & 29.5 $\pm$ 1.0                                   \\ \hline
+\end{tabular}
+\label{table:participantCharacteristics}
+\end{center}
+\end{table}
+
+\subsection{Performance in Stroop Task}
+The median [95\% CI] time to complete the incongruous Stoop task was 104s [98, 122] and 109s [97, 133] for the Healthy and Plaque groups respectively. The median [95\% CI] number of errors made during the incongruous Stroop task was 1 [1, 3] and 2 [1, 2] for the Healthy and Plaque groups respectively. There was no evidence of a difference between the Healthy and Plaque groups in either the time required to complete the task or the number of errors made (p = 0.43 and 0.99, respectively). Both the Healthy and Plaque groups made zero errors in the nominal condition of the Stroop Task.
+
+
+\subsection{Central hemodynamics during Stroop task}
+ There was no evidence of differences in the change in HR or  MAP associated with the incongruous Stroop test between groups with respect to (1) the baseline period or (2) the nominal Stroop task. 
+ 
+\noindent (1) The mean $\pm$ SD change in MAP with respect to the baseline period was 5.8 $\pm$ 5.1 mmHg and 7.3 $\pm$ 4.1 mmHg for the Healthy and Plaque groups respectively (p = 0.24). The mean $\pm$ SD change in HR with respect to the baseline period was 5.0 $\pm$ 3.5 beats/min and 3.7 $\pm$ 2.4 beats/min for the Healthy and Plaque groups respectively (p = 0.13). 
+ \newline
+ \noindent (2) The mean $\pm$ SD change in MAP with respect to the nominal Stroop test was 5.04 $\pm$ 6.4 mmHg and 6.8 $\pm$ 7.0 mmHg for the Healthy and Plaque groups respectively (p = 0.38). The mean $\pm$ SD change in HR with respect to the nominal Stroop test was 0.7 $\pm$ 3.9 beats/min and 0.67 $\pm$ 1.7 beats/min for the Healthy and Plaque groups respectively (p = 0.93).  
+
+\subsection{Cerebral fNIRS during Stroop task}
+Out of the 1188 channels available for analysis (18 channels times 66 participants), 41 were rejected in total. The average number of channels excluded per participant was 0.61. 
+
+Figure \ref{fig:Results} shows the mean t statistic maps for the Healthy and Plaque groups for O2Hb and HHB. The direction of expected change in response to the stimulus (positive for O2Hb and negative for HHB) was incorporated into the GLM such that a positive t value corresponds to a greater increase in O2Hb and a greater decrease in HHb with respect to the nominal condition. Note that there is evidence of increased O2Hb in response to the incongruous condition in all brain regions in the Healthy group, and in the RPFC, LPFC, and LMC in the Plaque group (prevalence of t values $>$ 2). 
+
+The LME coefficient indicating the effect of being categorized into the Plaque group for O2Hb was -1.13 (p = 0.036) which suggests that plaque is associated with a global reduction in O2Hb for all regions. However, there were no significant differences between individual regions observed in the LME for O2Hb for (i) all participants regardless of group and (ii) when an interaction between group and region was included. The output from the LME analysis is given in the Supplementary Information (S1). 
+
+In the LME for HHB, the LPFC of all participants (regardless of group) showed a significantly greater drop in HHB compared to the control region, (coefficient = 0.65, p = 0.042). There were no significant differences between Healthy and Plaque groups (p = 0.77), which indicates that no global reduction in HHB was detected. However, significant reductions in HHB in specific regions were observed when including an interaction between Group and Region. The LPFC (coefficient = -1.36, p = 0.021) and LMC (coefficient = -1.25, p = 0.008) showed significantly a significantly smaller decrease in HHB in the Plaque group compared to the Healthy group as indicated by the magenta arrows in Figure \ref{fig:Results}. The output from the LME analysis for HHB is given in Supplementary Information S1. 
+
+Together, the results from O2Hb and HHB suggest that NVC (identified by an increase in O2Hb and corresponding decrease in HHB) is significantly reduced in the left hemsiphere of the brain of participants in the Plaque group compared to the Healthy group. Additionally, the HHB LME suggests that general activation in the LPFC is observed for participants in both groups in response to the incongruous Stroop task.
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = \linewidth]{Fig3_Results.jpg}
+\end{center}
+\caption 
+{\label{fig:Results} Shows the mean t statistic maps for each group (Healthy and Plaque) when comparing the incongruous Stroop to the nominal Stroop for oxygenated haemoglobin (O2Hb) and deoxygenated haemoglobin (HHB). The higher the t statistic, the greater evidence of increased change in Hb (rise in O2Hb, fall in HHB), and thus functional brain activity. Note that the average t statistic is significantly lower overall in the Plaque group compared with the Healthy group in O2Hb as indicated by the pink asterisk. Also note the significant reduction in t statistic in the LPFC and LMC in the Plaque group compared with the Healthy group in HHB as indicated by the pink arrows. } 
+\end{figure} 
+
+
+
+\section{Discussion}
+There are various factors contributing to the expected pattern of brain activity during the incongruous Stroop task, such as handedness, age, sex, and brain health\cite{Beratis2010, Lague-Beauvais2013a, Li2009, Milham2002, Vendrell1995, Cuevas2016}. In general, it is widely accepted that the ability to perform a  color-word matching Stroop task requires adequate function of a fronto-parietal network including the anterior cingulate cortex (ACC), the PFC, and the parietal lobe\cite{Roberts2008, Laird2005, Li2009, Vanderhasselt2009}. Although the PFC has been shown to be active bilaterally during an incongruous Stroop task \cite{Lague-Beauvais2013a, Milham2002, Zysset2001}, there is some evidence suggesting that the left hemisphere may be more active than the right  in young healthy individuals\cite{Jonides2000}. Due to cap geometry and limitations of fNIRS penetration depth, we were unable to assess activity in the ACC and parietal lobe. We observed that on average, all regions for all participants (except for the RMC in the Plaque group) demonstrated an increase in H2Ob in response to the incongruous Stroop task compared with the nominal task as evidenced by the prevalence of relatively high t values ($>$2) as shown in Figure \ref{fig:Results}. Given the global increase in O2Hb, we used HHB (which was more localized) as an arbitrator to determine which regions likely exhibit evidence of NVC, as an increase in H2Ob alone is not sufficient \cite{Pinti2021}. Reassuringly, LME for HHB revealed that all participants had significantly greater decreases in HHB concentration in the LPFC compared to the RMC (p = 0.042). We interpret this to mean that the LPFC has a significantly greater level of NVC than the RMC (i.e. the control region), which is broadly consistent with the expected activation pattern of the PFC based on the literature. However, the HHB LME model did not show significant differences in activation between the RPFC and RMC. This may be due to an age-related loss of localisation of functional activation, resulting in a diffuse, heterogenous, and/or weaker activation in older adults compared with younger adults \cite{Lague-Beauvais2013a, Milham2002,Schroeter2003}. Indeed, the variability in brain activation patterns between individuals is exemplified in Figure \ref{fig:individualResults}. Although some participants retain the `model' activation pattern characterised by highly focal regions of activation in the bilateral PFC (e.g. participants 1, 11, 33), the majority of participants show a spread in activation (e.g. participants 6, 18, 19, 27) or weak/null global activation (e.g. participants 3, 4, 13, 14, 25, 26) which is expected given the age (72 - 73 years) of the participants in this study. We did not see any convincing evidence of PFC dominance in the O2Hb LME. However, the long stimulus times used made the O2Hb signal particularly susceptible to physiological contamination thereby making it less reliable than the HHB signal \cite{Tachtsidis2016}. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = \linewidth]{Fig4_revised_individualResults.jpg}
+\end{center}
+\caption 
+{\label{fig:individualResults} Individual t statistic maps showing the brain activation pattern for all 33 participants in the Healthy group performing the Stroop task (incongruous vs. null condition). The t statistic is indicated by the colorbar, with brighter colors indicating a high t value and thus greater evidence for NVC.} 
+\end{figure} 
+
+Furthermore, the LME results indicate microvascular cerebral hemodynamics may be altered in individuals with bilateral carotid plaques compared with healthy controls in association with an incongruous Stroop test. Specifically, there appears to by vascular impairment in the Plaque group compared with the Healthy group; this is demonstrated by a significant reduction in the magnitude of HHB decrease in the left hemisphere of the brain, which is accompanied by a significantly reduced increase in O2Hb (though the latter is a global effect). 
+
+Examples of the fNIRS data for individual participants from each group (after temporal pre-processing but before applying the GLM) are shown in Figure \ref{fig:rawHHB}. Note the increased magnitude of the OHB response globally for the participant in the Healthy group compared with the participant in the Plaque group. Although smaller in magnitude and not sustained throughout the stimulus, also note that the drop in HHB in the LPFC for the first 40 seconds during the incongruous condition is larger in the Healthy participant compared with the Plaque participant (pink arrows). 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = \linewidth]{Fig6_rawHHB.jpg}
+\end{center}
+\caption 
+{\label{fig:rawHHB} Example channels from each of the four brain regions assessed for an example participant in the (left) Healthy group and the (right) Plaque group. The Hb signals shown here have been temporally pre-processed as described in Section \ref{sec:pipeline}, but otherwise reflect the raw data (i.e. before short separation channel regression with the GLM). Note that overall, the OHB signal (red lines) increases to a greater extent in response to the incongruous condition for the participant in the Healthy group compared to the participant in the Plaque group. Also note the increased drop in HHB (blue lines) in the LPFC in the Healthy participant compared with the Plaque participant (magenta arrows).} 
+\end{figure} 
+
+The observation that carotid plaques are associated with a reduction in NVC is similar to previous studies investigating the effect of atherosclerosis on cerebral hemodynamics and oxygenation. For example, Khan et. al (2021) used perfusion-weighted MRI to assess the relationship between carotid stenosis and cerebral perfusion and found that over 80\% of patients had a detectable reduction in brain perfusion in the hemisphere ipsilateral to the carotid stenosis \cite{Khan2021}. Lal et. al (2017) used the transcranial Doppler (TCD) breath-holding index (BHI) to compare cerebral hemodynamics in patients with asymptomatic carotid stenosis ($>$ 50\% occulsion) and age-matched healthy controls, and found a reduced ispsilateral BHI in half of the patients\cite{Lal2017}. Similarly, Vernieri et. al (2006) demonstrated a significant reduction in vasoreactivity using both fNIRS and TCD in patients with symptomatic carotid artery occlusion compared to patients with asymptomatic carotid artery occlusion \cite{Vernieri2006}. Furthermore, Forero et. al (2017) used fNIRS to show that patients with carotid stenosis had (1) a decreased vasoreactivity by 23\% and (2) 33\% fewer network links in the hemisphere ipsilateral to the stenotic vessel \cite{Forero2017}. The observation that atherosclerosis is associated with impaired NVC is further corroborated by Shroeter et. al (2006), who demonstrated that patients with cerebral microangiopathy (small vessel disease) had a weaker and delayed hemodynamic response compared with age-matched controls in both the left and right frontal lobes during a color-word Stroop task \cite{Schroeter2007}. 
+
+Given that our study includes only those with bilateral carotid plaques, it is unclear why the left hemisphere of the brain seems to be more affected than the right. This could be because the left side plays a more dominant role during the incongruous Stroop task\cite{Jonides2000}, thus making any deficits linked to vascular disease in that region more readily apparent. Measurements of plaque size and carotid intima medial thickness (cIMT) are currently ongoing, and will be used in future work to further assess the relationship between carotid atherosclerotic burden, plaque characteristics and cerebral hemodynamics. 
+
+Interestingly, the observed  change in the pattern of brain activation was not accompanied by a change in central hemodynamic measures or task performance between people with and without atherosclerosis. Both groups found the incongruous Stroop task similarly `stressful', and therefore may have had a similar level of sympathetic nervous system activation. There are several reasons that could explain the latter observation whereby the Plaque group maintained performance of the Stroop task despite experiencing reduced NVC in the regions assessed with fNIRS. One explanation could be the nature of the disease progression: hypoperfusion has been shown to \textit{precede} cognitive decline, and must be chronic and persistent to cause the neuronal energy crisis that triggers neurodegeneration \cite{DelaTorre2018, Honjo2012}. As the participants in the Plaque group had no prior evidence of CVD and the plaques were found incidentally (i.e. otherwise asymptomatic), we likely identified them at an early stage of the pathway between altered cerebral hemodynamics and measurable cognitive decline. It is also possible that regions outside of the areas interrogated by fNIRS in this study were recruited to maintain task performance in a phenomenon referred to as `neural compensation'  \cite{Braskie2010, Bondi2005, Wishart2006}. Working under this supposition, cognitive impairment would then only be apparent when the additional cognitive reserve were no longer sufficient. Although plausible, this study does not provide the data support needed to determine whether neural compensation was occuring; this would require further work using a method capable of measuring global cerebral hemodynamics and neural activation. Finally, all participants of this study had an MMSE score of 24 or over; if this study were repeated on participants demonstrating signs of cognitive impairment, a relationship between hemodynamic measures and task performance might be observed.
+
+This study has several limitations. Firstly, the Stroop protocol was designed to be consistent with a previous INSIGHT wave before the addition of fNIRS. Consequently, the protocol was not modified to be optimal for fNIRS, which is why each condition in the Stroop test is administered in a single long block as opposed to multiple short blocks. Although every effort was made to minimize the effect of physiological contamination (such as including the short separation channels in the design matrix and specifying the contrast to compare the incongruous vs. the nominal condition), we cannot exclude that the cerebral component of the O2Hb fNIRS signal is confounded by extracerebral hemodynamics. Specifically, one concern is the spatial heterogeneity of scalp blood flow; we used a single short separation channel measurement to reflect the systemic effect for the entire hemisphere of the head, which is an imperfect method given the variability in systemic blood flow as a function of location. Although the HHB response is smaller in magnitude, it is less sensitive to this type of contamination (see Figure \ref{fig:channelDiscussion}) and thus is likely to be a better indicator of NVC in this study\cite{Tachtsidis2016}. This is confirmed by our findings in our `known' condition: we know that there should be increased activity in the PFC compared to the sensorimotor regions in response to the Stroop task. This was indeed picked up in the HHb signal, which showed a significantly greater decrease in HHb concentration on the LPFC than the RMC.However, we would like to emphasize that although O2Hb and HHB are not in perfect agreement, they are not necessarily contradictory. Rather, the increased concentration of O2Hb in response to the stimulus was more widespread whereas the decrease in HHB concentration was more localized. This pattern has been previously described in other fNIRS studies \cite{Pinti2021}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = \linewidth]{Fig5_channelDiscussion.jpg}
+\end{center}
+\caption 
+{\label{fig:channelDiscussion} Top row: Example preprocessed channels from the left prefrontal cortex (LPFC) of a participant in the Healthy group with O2Hb and HHB shown in red and blue respectively. Note that in response to the stimulus periods (yellow blocks), the O2Hb signal increases to a greater extent corresponding decrease in HHB. Bottom row: The same channels as above are duplicated below, this time with the corresponding O2Hb (magenta) and HHB (cyan) measures from the short separation channel superimposed. Note that the O2Hb short separation channel responds in a similar way to the O2Hb long separation channel throughout the Stroop task, whereas the HHB short separation channel maintains a relatively flat shape. This implies that O2Hb is more sensitive to extracerebral contamination than HHB.} 
+\end{figure} 
+
+Secondly, we chose to focus on the extremes of atherosclerosis within our sample (no plaques vs. bilateral plaques) to increase the chances of detecting differences with a limited sample size. In future it would be valuable to examine the relationship between NVC and atherosclerosis using atherosclerosis as a graded rather than a binary measure, although this is likely to require a larger sample size.
+
+Although the Plaque and Healthy groups were age-matched and had relatively similar cardiovascular health profiles with the exception of the presence of carotid plaques, there was a difference in numbers of men between the two groups (70\% men in the Plaque group versus 36\% men in the Healthy group). We performed an additional LME analysis with statistical adjustment for sex (see supplementary information S2) and saw little effect on the overall results, but the sample size used was too small to draw any firm conclusions regarding the influence of sex on observed associations. Lastly, the sample was drawn from a UK-based national birth cohort and only included people of White European ethnicity and consequently our findings may not be generalizable to other samples.
+
+This study also has many strengths which are worth highlighting. Firstly, we were able to take advantage of the advanced fNIRS preprocessing methods offered by SPM-fNIRS, such as customizing our design matrix to include physiological contaminants, and using pre-whitening to correct for serial autocorrelations in our data. Both of these have the effect of reducing the false positive rate, thereby giving us confidence that our results are robust even in the presence of noise. The Polhemus digitization and statistical parametric mapping also enabled us to preserve the geometry of of our fNIRS measurements such that we could perform our analyses on anatomical regions rather than being restricted to channel-wise analyses. Secondly the extensive phenotyping performed as part of this study and previous data acquired as part of the NSHD enabled us to compare health and cognition status between our groups: this gives us some confidence that the differences observed in the cerebral hemodynamics between the two groups are likely to be a reflection of the differences related to carotid atherosclerosis. 
+
+
+\section{Conclusions}
+As expected, evidence of brain activation based on fNIRS measurement of HHB was found in the LPFC of all participants. Despite individual heterogeneity of brain activation patterns, a consistent decrease in brain activity was observed in participants with bilateral carotid plaques compared with healthy controls during the incongruous Stroop task. Interestingly, this change in activation pattern was not accompanied by a marked differences in MAP, HR, or task performance. We demonstrate that carotid atherosclerosis, a well-established cardiovascular risk factor, may be associated with alterations in NVC while performing the Stroop task even in the absence of detectably impaired cognitive performance. 
+
+\section*{Funding}
+Insight 46 is funded by grants from Alzheimer's Research UK (ARUK-PG2014-1946, ARUK-PG2017-1946 PIs Schott, Fox, Richards), the Medical Research Council Dementias Platform UK (CSUB19166 PIs Schott, Fox, Richards), the Wolfson Foundation (PR/ylr/18575 PIs Fox, Schott), the Medical Research Council (MC\_UU\_12019/1 PI Kuh and MC\_UU\_12019/3 PI Richards), the Wellcome Trust (Clinical Research Fellowship 200109/Z/15/Z Parker) and Brain Research Trust (UCC14191, PI Schott). The cardiovascular assessments of Insight 46 are funded by a grant from the British Heart Foundation (PG17/90/33415 PI Hughes). Hughes also receives support from the British Heart Foundation, the Economic and Social Research Council (ESRC), the Horizon 2020 Framework Programme of the European Union, the National Institute on Aging, the National Institute for Health Research University College London Hospitals Biomedical Research Centre, the UK Medical Research Council.  
+
+\section*{Acknowledgments}
+We would like to thank the study members from the MRC National Survey of Health and Development (NSHD) for their lifelong commitment to the study and the Insight 46 and NSHD study teams for their work, help and guidance.
+
+
+
+% \disclosures 
+\section*{Disclosures}
+Nish Chaturvedi serves on a Data Safety and Monitoring Board for a clinical trial of a glucose lowering agent, funded by AstraZeneca. No other authors have competing interests.
+
+
+%\section* {Data, Materials, and Code Availability} 
+
+
+
+%%%%% References %%%%%
+
+\bibliography{library_new}   % bibliography data in report.bib
+\bibliographystyle{spiejour}   % makes bibtex use spiejour.bst
+
+
+
+\end{spacing}
+\end{document}
